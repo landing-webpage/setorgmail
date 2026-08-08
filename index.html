@@ -1,0 +1,927 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Setor Gmail - Batch 1</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #111827, #1e293b);
+    color: white;
+    min-height: 100vh;
+    padding: 18px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* CARD */
+
+.card {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    padding: 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/* HEADER */
+
+.header {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+
+    border-radius: 30px;
+
+    background: #16a34a;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* SECTION */
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* INFO */
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 11px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.info:last-child {
+    border-bottom: none;
+}
+
+.label {
+    color: #94a3b8;
+}
+
+/* RATE */
+
+.rate {
+    display: grid;
+    gap: 10px;
+}
+
+.rate-item {
+    background: rgba(255,255,255,.06);
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rate-item strong {
+    color: #facc15;
+    font-size: 17px;
+}
+
+/* COUNTDOWN */
+
+.countdown {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.time-box {
+    background: rgba(255,255,255,.08);
+
+    border-radius: 12px;
+
+    padding: 12px 5px;
+
+    text-align: center;
+}
+
+.time-box b {
+    display: block;
+    font-size: 22px;
+}
+
+.time-box span {
+    font-size: 10px;
+    color: #94a3b8;
+}
+
+/* RULES */
+
+.rules {
+    list-style: none;
+}
+
+.rules li {
+    padding: 9px 0;
+    line-height: 1.5;
+}
+
+.rules li::before {
+    content: "✓";
+    color: #4ade80;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* WARNING */
+
+.warning {
+    background: rgba(234,179,8,.12);
+
+    border: 1px solid rgba(234,179,8,.3);
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+/* FORM */
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #f8fafc;
+
+    color: #111827;
+
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* BUTTON */
+
+button,
+.wa-button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    display: block;
+
+    text-align: center;
+}
+
+.submit {
+    background: #22c55e;
+    color: white;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.website {
+    background: #3b82f6;
+    color: white;
+    margin-top: 10px;
+}
+
+#status {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #86efac;
+}
+
+/* TOTAL */
+
+.total-box {
+
+    background: rgba(34,197,94,.10);
+
+    border: 1px solid rgba(34,197,94,.25);
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+#total {
+    color: #4ade80;
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+.footer {
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    padding: 15px;
+}
+
+/* MOBILE */
+
+@media(max-width:380px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 17px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .time-box b {
+        font-size: 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="card header">
+
+        <div class="logo">
+            📧
+        </div>
+
+        <h1>
+            Setor Gmail
+        </h1>
+
+        <p class="subtitle">
+            Program layanan digital • Batch 1
+        </p>
+
+        <span
+            class="badge"
+            id="badge"
+        >
+            ● OPEN
+        </span>
+
+    </div>
+
+
+    <!-- INFORMASI -->
+
+    <div class="card">
+
+        <div class="section-title">
+            📅 Informasi Batch
+        </div>
+
+        <div class="info">
+
+            <span class="label">
+                Open
+            </span>
+
+            <strong>
+                7 Agustus 2026
+            </strong>
+
+        </div>
+
+        <div class="info">
+
+            <span class="label">
+                Close
+            </span>
+
+            <strong>
+                15.00 WIB
+            </strong>
+
+        </div>
+
+        <div class="info">
+
+            <span class="label">
+                Status
+            </span>
+
+            <strong id="batchStatus">
+                CLOSE
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- COUNTDOWN -->
+
+    <div class="card">
+
+        <div class="section-title">
+            ⏳ Countdown
+        </div>
+
+        <p class="subtitle">
+            Batas pengajuan batch
+        </p>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <b id="days">00</b>
+                <span>HARI</span>
+            </div>
+
+            <div class="time-box">
+                <b id="hours">00</b>
+                <span>JAM</span>
+            </div>
+
+            <div class="time-box">
+                <b id="minutes">00</b>
+                <span>MENIT</span>
+            </div>
+
+            <div class="time-box">
+                <b id="seconds">00</b>
+                <span>DETIK</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RATE -->
+
+    <div class="card">
+
+        <div class="section-title">
+            💵 Rate
+        </div>
+
+        <div class="rate">
+
+            <div class="rate-item">
+
+                <span>
+                    Paket 1
+                </span>
+
+                <strong>
+                    Rp3.500
+                </strong>
+
+            </div>
+
+            <div class="rate-item">
+
+                <span>
+                    Paket 2
+                </span>
+
+                <strong>
+                    Rp4.000
+                </strong>
+
+            </div>
+
+            <div class="rate-item">
+
+                <span>
+                    Paket 3
+                </span>
+
+                <strong>
+                    Rp4.500
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- KETENTUAN -->
+
+    <div class="card">
+
+        <div class="section-title">
+            📌 Ketentuan
+        </div>
+
+        <ul class="rules">
+
+            <li>
+                Data yang dikirim harus benar.
+            </li>
+
+            <li>
+                Pengajuan harus sesuai ketentuan layanan.
+            </li>
+
+            <li>
+                Pengajuan yang tidak sesuai dapat ditolak.
+            </li>
+
+            <li>
+                Pembayaran diproses maksimal 1×24 jam setelah batch ditutup.
+            </li>
+
+            <li>
+                Pembayaran utama menggunakan DANA.
+            </li>
+
+            <li>
+                Biaya transfer di luar ketentuan dapat dibebankan kepada penerima.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- PERINGATAN -->
+
+    <div class="card">
+
+        <div class="section-title">
+            ⚠️ Penting
+        </div>
+
+        <div class="warning">
+
+            Pastikan seluruh data pengajuan sudah benar
+            sebelum dikirim.
+
+            Pengajuan yang tidak memenuhi ketentuan
+            dapat ditolak.
+
+        </div>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="card">
+
+        <div class="section-title">
+            📝 Form Pengajuan
+        </div>
+
+        <input
+            type="text"
+            id="nama"
+            placeholder="Nama"
+        >
+
+        <input
+            type="number"
+            id="jumlah"
+            placeholder="Jumlah"
+            min="1"
+            oninput="hitungTotal()"
+        >
+
+        <select
+            id="paket"
+            onchange="hitungTotal()"
+        >
+
+            <option value="">
+                Pilih paket
+            </option>
+
+            <option value="3500">
+                Paket Rp3.500
+            </option>
+
+            <option value="4000">
+                Paket Rp4.000
+            </option>
+
+            <option value="4500">
+                Paket Rp4.500
+            </option>
+
+        </select>
+
+
+        <div class="total-box">
+
+            <span>
+                Estimasi Total
+            </span>
+
+            <span id="total">
+                Rp0
+            </span>
+
+        </div>
+
+
+        <textarea
+            id="catatan"
+            placeholder="Catatan tambahan (opsional)"
+        ></textarea>
+
+
+        <button
+            class="submit"
+            onclick="kirimPesanan()"
+        >
+            📤 KIRIM PENGAJUAN
+        </button>
+
+
+        <div id="status"></div>
+
+    </div>
+
+
+    <!-- KONTAK -->
+
+    <div class="card">
+
+        <div class="section-title">
+            📞 Kontak Admin
+        </div>
+
+        <p
+            style="
+            line-height:1.6;
+            color:#cbd5e1;
+            margin-bottom:15px;
+            "
+        >
+            Untuk pertanyaan, konfirmasi,
+            atau informasi lebih lanjut,
+            silakan hubungi admin.
+        </p>
+
+
+        <a
+            class="wa-button whatsapp"
+            href="https://wa.me/6282320007618"
+            target="_blank"
+        >
+            💬 WHATSAPP ADMIN
+        </a>
+
+
+        <a
+            class="wa-button website"
+            href="https://iyusnurdiannugraha.github.io"
+            target="_blank"
+        >
+            🌐 WEBSITE SAYA
+        </a>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 Setor Gmail
+
+        <br>
+
+        Salam cuan 🥳
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   COUNTDOWN
+========================================== */
+
+const targetDate =
+    new Date(
+        "2026-08-07T15:00:00+07:00"
+    ).getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        targetDate - now;
+
+
+    if (distance <= 0) {
+
+        document.getElementById("days")
+            .innerText = "00";
+
+        document.getElementById("hours")
+            .innerText = "00";
+
+        document.getElementById("minutes")
+            .innerText = "00";
+
+        document.getElementById("seconds")
+            .innerText = "00";
+
+        document.getElementById("batchStatus")
+            .innerText = "CLOSE";
+
+        document.getElementById("badge")
+            .innerText = "● CLOSE";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("days")
+        .innerText =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("hours")
+        .innerText =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+        .innerText =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+        .innerText =
+        String(seconds).padStart(2,"0");
+}
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+updateCountdown();
+
+
+/* ==========================================
+   HITUNG TOTAL
+========================================== */
+
+function hitungTotal() {
+
+    const jumlah =
+        Number(
+            document.getElementById("jumlah").value
+        );
+
+    const paket =
+        Number(
+            document.getElementById("paket").value
+        );
+
+
+    const total =
+        jumlah * paket;
+
+
+    document.getElementById("total")
+        .innerText =
+        "Rp" +
+        total.toLocaleString("id-ID");
+}
+
+
+/* ==========================================
+   KIRIM KE WHATSAPP
+========================================== */
+
+function kirimPesanan() {
+
+    const nama =
+        document.getElementById("nama")
+        .value
+        .trim();
+
+
+    const jumlah =
+        document.getElementById("jumlah")
+        .value;
+
+
+    const paket =
+        document.getElementById("paket")
+        .value;
+
+
+    const catatan =
+        document.getElementById("catatan")
+        .value
+        .trim();
+
+
+    if (
+        !nama ||
+        !jumlah ||
+        !paket
+    ) {
+
+        document.getElementById("status")
+            .innerText =
+            "⚠️ Lengkapi data terlebih dahulu.";
+
+        return;
+    }
+
+
+    const total =
+        Number(jumlah) *
+        Number(paket);
+
+
+    const pesan =
+
+`Halo Admin 👋
+
+Saya ingin mengajukan layanan digital.
+
+Nama: ${nama}
+Jumlah: ${jumlah}
+Paket: Rp${Number(paket).toLocaleString("id-ID")}
+Estimasi total: Rp${total.toLocaleString("id-ID")}
+
+Catatan:
+${catatan || "-"}
+
+Mohon informasi selanjutnya.
+Terima kasih.`;
+
+
+    const nomor =
+        "6282320007618";
+
+
+    const url =
+        "https://wa.me/" +
+        nomor +
+        "?text=" +
+        encodeURIComponent(pesan);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
+```
+  
